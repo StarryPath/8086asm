@@ -1,0 +1,20 @@
+Code SEGMENT
+	ASSUME CS:code,DS:code
+	ORG 100H
+Start: 
+	MOV		AX,Code
+	MOV		DS,AX
+	MOV		SI,200H
+	MOV		AX,[SI]
+	MOV		DI,204H
+	ADD		AX,[DI]
+	MOV		[SI+8],AX
+	MOV		AX,[SI+2]
+	ADD  	AX,[DI+2]
+	MOV		[SI+0AH],AX
+	MOV		AX,4C00H
+	INT  	21H
+	ORG 	200H	
+	DD		12345678h,654387A9h,0h
+Code ENDS
+END Start
